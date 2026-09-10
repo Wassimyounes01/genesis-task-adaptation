@@ -1,0 +1,12 @@
+{
+  "name": "genesis-task-adaptation",
+  "node": ">=20",
+  "exports": { "AdaptationStore": "class", "createAdaptationStore": "function", "digest": "function" },
+  "integration": {
+    "plan": "{planId, planHash, taskIds[]}",
+    "checkpoint": "{planId,eventId,kind,summary,taskId?,changes?,sourceRefs?}",
+    "resolve": "resolve(revisionId,{decision:'accept'|'reject',actor,reason,revalidateSource?})",
+    "recheck": "isRecheckRequired(planId,taskId,evidenceSequence); markRechecked(planId,taskId,{evidenceSequence,revisionId,evidence,validateEvidence})"
+  },
+  "limitations": ["Source revalidation is a caller callback and is not cryptographic proof.", "State is local and synchronous; use an external lock for multi-process writers."]
+}
