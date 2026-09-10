@@ -1,4 +1,4 @@
-![Task Adaptation](docs/cover.svg)
+![Task Adaptation](docs/cover.svg?design=2)
 
 # genesis-task-adaptation
 
